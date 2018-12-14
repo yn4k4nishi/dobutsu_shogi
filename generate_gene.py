@@ -5,7 +5,7 @@ import csv
 
 def generate_gene(csvfile):
     ### 遺伝子の作成
-    kkp_first = np.random.randint(100, size=(12*11*5,12-2))
+    kkp_first = np.random.randint(100, size=(12*11*4,12-2))
     # kkp_first[0][0] = None
     # print(kkp_first)
 

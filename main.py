@@ -21,7 +21,7 @@ import pandas as pd
 # Bのニワトリ : -4
 # Bのヒヨコ   : -5
 # なにもないところは 0
-boad = [-3,-1,-2,0,-5,0,]
+boad = [-3,-1,-2,0,-5,0,0,5,0,2,1,3]
 
 geneA = pd.read_csv("kkp_gene/gene_0.csv").values.tolist()
 geneB = pd.read_csv("kkp_gene/gene_1.csv").values.tolist()

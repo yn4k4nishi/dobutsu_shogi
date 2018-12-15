@@ -1,19 +1,22 @@
 #coding:utf-8
 import numpy as np
 import random
-import csv
 
-def generate_gene(csvfile):
+def generate_gene(file_name):
     ### 遺伝子の作成
     kkp_first = np.random.randint(100, size=(12*11*4,12-2))
     # kkp_first[0][0] = None
     # print(kkp_first)
 
-    ### CSVファイルに書き込み
-    with open(csvfile, 'w') as f:
-        writer = csv.writer(f, lineterminator='\n')
-        writer.writerows(kkp_first)
-    print("generate gene : "+ csvfile)
+    ### np.savetxt
+    np.savetxt(file_name,kkp_first,delimiter=',')
+    print("generate gene : "+ file_name)
+
+    ### np.loadtxt
+    # list = np.loadtxt(file_name,delimiter=',')
+    # print(list)
+    # print("\n")
+
 
 #############################################
 #####               main                #####

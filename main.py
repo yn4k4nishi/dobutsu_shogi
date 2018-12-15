@@ -2,6 +2,20 @@
 import csv
 import pandas as pd
 
+def make_kkp(lion_a,lion_b,gene):
+    white_lion = lion_a.index(1)
+    black_lion = lion_b.index(1)
+    if white_lion < black_lion:
+        kkp_EL = gene[white_lion * 11 * 4 + black_lion - 1]
+        kkp_GI = gene[white_lion * 11 * 4 + black_lion - 1 + 1]
+        kkp_CH = gene[white_lion * 11 * 4 + black_lion - 1 + 2]
+        kkp_Ch = gene[white_lion * 11 * 4 + black_lion - 1 + 3]
+    else:
+        kkp_EL = gene[white_lion * 11 * 4 + black_lion ]
+        kkp_GI = gene[white_lion * 11 * 4 + black_lion + 1]
+        kkp_CH = gene[white_lion * 11 * 4 + black_lion + 2]
+        kkp_Ch = gene[white_lion * 11 * 4 + black_lion + 3]
+
 def play_game(csv1,csv2):
     ### 盤面
     # +--------+ a
@@ -28,18 +42,16 @@ def play_game(csv1,csv2):
     b_hand = [0,0,0,0]
 
     ###駒得の得点
-    point_lion = 10000
-    point_elephant = 25
-    point_giraffe = 25
-    point_checkin = 10
-    point_check = 5
+    point_LI = 10000
+    point_EL = 25
+    point_GI = 25
+    point_CH = 10
+    point_Ch = 5
 
     ### KKPの読み込み
     gene_a = pd.read_csv(csv1).values.tolist()
     gene_b = pd.read_csv(csv2).values.tolist()
     # print(gene_A)
-
-    
 
 
 ###########################################################

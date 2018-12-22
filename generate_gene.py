@@ -17,8 +17,8 @@ def generate_gene(file_name):
 
     ### np.loadtxt
 #     list = np.loadtxt(file_name,delimiter=',')
-    list = np.load(file_name)
-    print(list[0])
+    # list = np.load(file_name)
+    # print(list[0])
 
 
 #############################################

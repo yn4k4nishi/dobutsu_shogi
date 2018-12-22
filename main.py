@@ -1,9 +1,8 @@
 #coding:utf-8
-import csv
 import pandas as pd
 import numpy as np
 
-def play_game(csv1,csv2):
+def play_game(npy1,npy2):
     ### 盤面
     # +--------+ a
     # | 0| 1| 2|
@@ -36,10 +35,10 @@ def play_game(csv1,csv2):
     point_Ch = 5
 
     ### KKPの読み込み
-    kkp_a = np.load(csv1)
-    kkp_b = np.load(csv2)
+    kkp_a = np.load(npy1)
+    kkp_b = np.load(npy2)
 
 ###########################################################
 #####                  main                           #####
 ###########################################################
-play_game("kkp_gene/gene_0.","kkp_gene/gene_1.csv")    
+play_game("kkp_gene/gene_0.npy","kkp_gene/gene_1.npy")    

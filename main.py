@@ -36,10 +36,10 @@ def play_game(csv1,csv2):
     point_Ch = 5
 
     ### KKPの読み込み
-    kkp_a = np.loadtxt(csv1,delimiter=',')
-    kkp_b = np.loadtxt(csv2,delimiter=',')
+    kkp_a = np.load(csv1)
+    kkp_b = np.load(csv2)
 
 ###########################################################
 #####                  main                           #####
 ###########################################################
-play_game("kkp_gene/gene_0.csv","kkp_gene/gene_1.csv")    
+play_game("kkp_gene/gene_0.","kkp_gene/gene_1.csv")    

@@ -17,20 +17,16 @@ def play_game(npy1,npy2):
                      [ 0, 0, 0, 0, 1, 0, 0,-1, 0, 0, 0, 0],   #chick
                      [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]])  #having piece(0:LI, 1:EL, 2:GI, 3:Ch, 6:LI, 7:EL, 8:GI, 9:Ch)
 
-    ###駒得の得点
-    point_LI = 10000
-    point_EL = 25
-    point_GI = 25
-    # point_CH = 10
-    point_Ch = 5
+    ###駒得の得点        LI     EL    GI    Ch           LI     EL    GI    Ch
+    point = np.array([[ 10000,   25,   25,    5, 0,  0, 10000,   25,   25,    5, 0, 0]])
 
     ### KKPの読み込み
     kkp_a = np.load(npy1)
     kkp_b = np.load(npy2)
 
     ### 評価盤面の取得
-    where_mLI = np.where(boad_a[0])
-    where_eLI = np.where(boad_b[0])
+    where_mLI = np.where(boad[0]== 1)
+    where_eLI = np.where(boad[0]==-1)
 
     if where_mLI[0][0] < where_eLI[0][0]:
         a_value = kkp_a[where_eLI[0][0]][where_mLI[0][0]]
@@ -38,7 +34,11 @@ def play_game(npy1,npy2):
     else:
         a_value = kkp_a[where_eLI[0][0]][where_mLI[0][0]-1]
         b_value = kkp_b[where_mLI[0][0]][where_eLI[0][0]-1]
-    
+    a_value = np.concatenate((a_value,point),axis=0)
+    b_value = np.concatenate((b_value,point),axis=0)
+
+    print(a_value,"\n\n",b_value)
+
     ### 入力層の作成
     # どこに動けるか
     can_move_a = np.zeros(shape=(8,12))
@@ -112,11 +112,8 @@ def play_game(npy1,npy2):
                          [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],  #10
                          [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0]]) #11
     
-    can_move_a[0] = np.dot(boad_a[0],base_LI)
-
-    
-    
-    print(can_move_a)
+    # can_move_a[0] = np.dot(boad_a[0],base_LI)
+    # print(can_move_a)
 
 ###########################################################
 #####                  main                           #####

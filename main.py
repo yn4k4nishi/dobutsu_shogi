@@ -1,5 +1,4 @@
 #coding:utf-8
-# import pandas as pd
 import numpy as np
 
 def play_game(npy1,npy2):
@@ -10,36 +9,19 @@ def play_game(npy1,npy2):
     # | 6| 7| 8|
     # | 9|10|11|
     # +--------+ b
-    # 座標               0  1  2  3  4  5  6  7  8  9 10 11 
-    boad_a = np.array([[ 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],   #lion
-                       [ 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],   #elephant
-                       [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],   #giraffe
-                       [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],   #chicken
-                       [ 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]])  #chick
-
-    boad_b = np.array([[ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
-                       [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
-                       [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-                       [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                       [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0]])
-    
-    #おける場所
-    canput = np.ones(shape=12)
-    for i in boad_a:
-        canput -= i
-    for i in boad_b:
-        canput -= i
-    # print(canput)
-
-    ###持ち駒 [ライオン, ゾウ, キリン, ヒヨコ]
-    a_hand = np.array([ 0,0,0,0])
-    b_hand = np.array([ 0,0,0,0])
+    # 座標             0  1  2  3  4  5  6  7  8  9 10 11 
+    boad = np.array([[ 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,-1, 0],   #lion
+                     [ 0, 0, 1, 0, 0, 0, 0, 0, 0,-1, 0, 0],   #elephant
+                     [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,-1],   #giraffe
+                     [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],   #chicken
+                     [ 0, 0, 0, 0, 1, 0, 0,-1, 0, 0, 0, 0],   #chick
+                     [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]])  #having piece(0:LI, 1:EL, 2:GI, 3:Ch, 6:LI, 7:EL, 8:GI, 9:Ch)
 
     ###駒得の得点
     point_LI = 10000
     point_EL = 25
     point_GI = 25
-    point_CH = 10
+    # point_CH = 10
     point_Ch = 5
 
     ### KKPの読み込み

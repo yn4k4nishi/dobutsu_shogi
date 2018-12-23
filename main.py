@@ -64,7 +64,8 @@ def play_game(npy1,npy2):
         for j in range(5):
             can_move_a[i] -= boad_a[j]
     # ライオンについて
-    
+    base = np.array([ 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12])
+    np.dot(boad_a[0],base)
     
     print(can_move_a)
 
